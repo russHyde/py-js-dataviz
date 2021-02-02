@@ -3,7 +3,8 @@ Working through "Data visualization with Python and JavaScript" by Kyran Dale
 Doing this in Python3 with modern JavaScript libraries (eg, lodash instead of
 underscore); rather than the tools recommended in the book.
 
-Use conda env "pyjsviz"
+Use `conda` env "pyjsviz" (see `env/environment.yml` or `env/requirements.txt`
+for details)
 
 Libraries / tools:
 
