@@ -28,8 +28,10 @@ console.log("Average morning time is " + average(mTimes));
 //
 var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+var isOdd = function(x){ return x%2; };
+
 var sum = nums
-  .filter(function(o){ return o%2 })
+  .filter(isOdd)
   .map(function(o){ return o * o })
   .reduce(function(a, b){ return a+b });
 
