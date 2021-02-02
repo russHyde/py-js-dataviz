@@ -17,11 +17,11 @@ Libraries / tools:
 - [ipython / jupyter] installed via conda (ipython7, jupyter-4.7)
 - [pandas] 1.2.1 installed via conda
 - [numpy] 1.19.5 installed via conda
-- [npm] installed from apt: `sudo apt install npm`
-- [eslint] installed from npm: `npm install eslint --save-dev` (for linting
+- ~~[npm] installed from apt: `sudo apt install npm`~~
+- ~~[eslint] installed from npm: `npm install eslint --save-dev` (for linting
   javascript files; this failed due to an error with npm; nodejs v4.5.2 was
   installed and was too early a version for eslint); therefore removed npm and
-  eslint
+  eslint~~
 
 # New things I learned
 
