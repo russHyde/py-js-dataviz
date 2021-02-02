@@ -1,14 +1,31 @@
 function Counter(inc){
-  var count = 0; // privately closed by the returned 'add' function
+  var count = 0; // private member
 
-  var add = function(){
-    count += inc;
+  var api = {};
+
+  // private method
+  var report = function(){
     console.log("Current count: " + count);
+  }
+  // public methods are added to the api and returned to the caller
+  api.add = function(){
+    count += inc;
+    report();
   };
+  api.sub = function(){
+    count -= inc;
+    report();
+  };
+  api.reset = function(){
+    count = 0;
+    console.log("Counter reset to 0");
+  }
 
-  return add;
+  return api;
 };
 
-var inc2 = Counter(2);
-inc2();
-inc2();
+var cntr = Counter(3);
+cntr.add();
+cntr.add();
+cntr.sub();
+cntr.reset();
