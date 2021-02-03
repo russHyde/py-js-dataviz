@@ -21,6 +21,16 @@ def write_csv(my_dict, file_path):
             csv_writer.writerow(entry)
 
 
+def read_csv(file_path):
+    """
+    return the contents of a .csv as a list of dictionaries
+    """
+    with open(file_path) as file_reader:
+        csv_reader = csv.DictReader(file_reader)
+        contents = list(csv_reader)
+
+    return contents
+
 def cat_csv(file_path):
     """
     print the contents of a .csv file to the console
@@ -32,7 +42,14 @@ def cat_csv(file_path):
             print(",".join(row))
 
 
-nobel_winners = [
+def format_winners_dict(my_dict):
+    """
+    convert numeric columns of a winner-dictionary
+    """
+    my_dict["year"] = int(my_dict["year"])
+    return my_dict
+
+NOBEL_WINNERS = [
     {
         "category": "Physics",
         "name": "Albert Einstein",
@@ -59,6 +76,8 @@ nobel_winners = [
 if __name__ == "__main__":
     FILE = os.path.join("data", "nobel_winners.csv")
 
-    write_csv(nobel_winners, FILE)
+    write_csv(NOBEL_WINNERS, FILE)
 
-    cat_csv(FILE)
+    imported = read_csv(FILE)
+    formatted = [format_winners_dict(winner) for winner in imported]
+    print(formatted)
