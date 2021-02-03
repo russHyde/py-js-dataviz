@@ -8,18 +8,18 @@ import csv
 from nobel import NOBEL_WINNERS
 
 
-def write_csv(my_dict, file_path):
+def write_csv(list_of_dicts, file_path):
     """
-    Assumes the same keys are present in each element of my_dict
+    Assumes the same keys are present in each element of list_of_dicts
     """
 
-    fieldnames = list(my_dict[0].keys())
+    fieldnames = list(list_of_dicts[0].keys())
     fieldnames.sort()
 
     with open(file_path, "w") as file_writer:
         csv_writer = csv.DictWriter(file_writer, fieldnames=fieldnames)
         csv_writer.writeheader()
-        for entry in my_dict:
+        for entry in list_of_dicts:
             csv_writer.writerow(entry)
 
 
