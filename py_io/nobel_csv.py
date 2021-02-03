@@ -5,6 +5,8 @@ Target list of nobel prize winners, passed between different storage formats
 import os
 import csv
 
+from nobel import NOBEL_WINNERS
+
 
 def write_csv(my_dict, file_path):
     """
@@ -31,6 +33,7 @@ def read_csv(file_path):
 
     return contents
 
+
 def cat_csv(file_path):
     """
     print the contents of a .csv file to the console
@@ -49,29 +52,6 @@ def format_winners_dict(my_dict):
     my_dict["year"] = int(my_dict["year"])
     return my_dict
 
-NOBEL_WINNERS = [
-    {
-        "category": "Physics",
-        "name": "Albert Einstein",
-        "nationality": "Swiss",
-        "sex": "male",
-        "year": 1921,
-    },
-    {
-        "category": "Physics",
-        "name": "Paul Dirac",
-        "nationality": "British",
-        "sex": "male",
-        "year": 1933,
-    },
-    {
-        "category": "Chemistry",
-        "name": "Marie Curie",
-        "nationality": "Polish",
-        "sex": "female",
-        "year": 1911,
-    },
-]
 
 if __name__ == "__main__":
     FILE = os.path.join("data", "nobel_winners.csv")
