@@ -3,6 +3,7 @@ Target list of nobel prize winners, passed between different storage formats
 """
 
 import os
+import csv
 
 
 def write_csv(my_dict, file_path):
@@ -10,24 +11,25 @@ def write_csv(my_dict, file_path):
     Assumes the same keys are present in each element of my_dict
     """
 
-    cols = list(my_dict[0].keys())
-    cols.sort()
+    fieldnames = list(my_dict[0].keys())
+    fieldnames.sort()
 
     with open(file_path, "w") as file_writer:
-        file_writer.write(",".join(cols) + "\n")
+        csv_writer = csv.DictWriter(file_writer, fieldnames=fieldnames)
+        csv_writer.writeheader()
+        for entry in my_dict:
+            csv_writer.writerow(entry)
 
-        for row_dict in my_dict:
-            row = [str(row_dict[col]) for col in cols]
-            file_writer.write(",".join(row) + "\n")
 
-
-def cat(file_path):
+def cat_csv(file_path):
     """
-    print the contents of a file to the console
+    print the contents of a .csv file to the console
     """
     with open(file_path) as file_reader:
-        for line in file_reader.readlines():
-            print(line.strip())
+        csv_reader = csv.reader(file_reader)
+        for row in csv_reader:
+            # row is a list of values
+            print(",".join(row))
 
 
 nobel_winners = [
@@ -59,4 +61,4 @@ if __name__ == "__main__":
 
     write_csv(nobel_winners, FILE)
 
-    cat(FILE)
+    cat_csv(FILE)
