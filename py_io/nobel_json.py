@@ -16,8 +16,8 @@ def read_json(file_path):
     """
     Reads some data from a json file
     """
-    with open(file_path, "r") as file_reader:
-        return file_reader.read()
+    with open(file_path) as file_reader:
+        return json.load(file_reader)
 
 
 if __name__ == "__main__":
