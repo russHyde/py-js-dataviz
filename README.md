@@ -17,6 +17,13 @@ Libraries / tools:
 - [ipython / jupyter] installed via conda (ipython7, jupyter-4.7)
 - [pandas] 1.2.1 installed via conda
 - [numpy] 1.19.5 installed via conda
+- [sqlalchemy] 1.3.23 installed via conda
+
+Dev tools
+
+- [pylint] / [black] from conda
+
+Failed installs:
 - ~~[npm] installed from apt: `sudo apt install npm`~~
 - ~~[eslint] installed from npm: `npm install eslint --save-dev` (for linting
   javascript files; this failed due to an error with npm; nodejs v4.5.2 was
@@ -61,3 +68,29 @@ Libraries / tools:
 - JS: use closures to allow for private variables
 - JS: can also define public/private methods by returning a public api
 - PY: use 'nonlocal' to define closures in python (but don't, just don't)
+
+# Chapter 3
+
+- PY: `pylint` fails to import modules in the same directory (so shows a lint
+  when importing `nobel.NOBEL_WINNERS` from `nobel.py` into `nobel_csv.py` when
+  the two .py files are in the same directory; because pylint copies things
+  over to temporary directories)
+- PY: `pymongo` for interacting with mongo databases
+- PY: `a = some_dict.keys(); a.sort()` does not work in py3.9; `dict_keys` has
+  no attribute `sort`; therefore use `a = list(some_dict.keys()); a.sort()`
+- PY: (I'm sure I knew but ...) `file_writer.writelines(xs)` does not append
+  newlines
+- PY: `print(some_line),` with trailing comma - the book says this should print
+  without any trailing newline, but it doesn't work in python 3.9.1 --
+  therefore use `print(some_line.strip())`
+- PY: `csv.DictWriter` for constructing a .csv from a collection of
+  dictionaries.
+- PY: `csv.DictReader` for constructing a list of dictionaries from a .csv
+- PY: `csv.reader` reads in all data as strings (so you need to convert to
+  numeric etc if reqd)
+- PY: `json.dump` (`json.load`) to save (load) a collection (here, list of
+  dictionaries) to json format
+- PY: `json.dumps` cannot handle arbitrary classes, eg,
+  `json.dumps(datetime.now())` fails; so encode them using a custom encoder
+  using `json.dumps(xs, cls=CustomEncoder)`
+- PY: use `datetime.datetime.strptime(date_string, format)` to decode datetimes
