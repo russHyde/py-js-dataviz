@@ -74,6 +74,24 @@ def nobel_summary(session):
     print(nobel_winners)
 
 
+def destructive_updates(session, engine):
+    # Update Marie Curie's nationality to French
+    marie = session.query(Winner).get(3)
+    marie.nationality = "French"
+    print(session.dirty)
+    session.commit()
+    print(session.dirty)
+    print(session.query(Winner).get(3).nationality)
+
+    # Delete Albert Einstein's entry
+    session.query(Winner).filter_by(name="Albert Einstein").delete()
+    session.commit()
+    print(list(session.query(Winner)))
+
+    # Drop the whole table
+    Winner.__table__.drop(engine)
+
+
 if __name__ == "__main__":
     URL = "sqlite:///data/nobel_prize.db"
     ENGINE = create_engine(URL, echo=True)
@@ -82,18 +100,4 @@ if __name__ == "__main__":
     populate(SESSION, NOBEL_WINNERS)
     nobel_summary(SESSION)
 
-    # Update Marie Curie's nationality to French
-    marie = SESSION.query(Winner).get(3)
-    marie.nationality = "French"
-    print(SESSION.dirty)
-    SESSION.commit()
-    print(SESSION.dirty)
-    print(SESSION.query(Winner).get(3).nationality)
-
-    # Delete Albert Einstein's entry
-    SESSION.query(Winner).filter_by(name="Albert Einstein").delete()
-    SESSION.commit()
-    print(list(SESSION.query(Winner)))
-
-    # Drop the whole table
-    Winner.__table__.drop(ENGINE)
+    # destructive_updates(SESSION, ENGINE)
