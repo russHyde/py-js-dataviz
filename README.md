@@ -19,6 +19,13 @@ Libraries / tools:
 - [numpy] 1.19.5 installed via conda
 - [sqlalchemy] 1.3.23 installed via conda
 - [sqlite] 3.34.0 was already installed by conda
+- [dataset] installed via pip
+    - this also installed Mako, alembic, banal, python-editor via pip
+    - banal not available through conda
+    - replaced alembic/mako with conda-forge version)
+    - attempted to install conda-forge python-editor but it doesn't work: after
+      a seemingly successful conda-install, it is present as a pip-installed
+      package when looking at `conda env export`
 
 Dev tools
 
@@ -30,6 +37,7 @@ Failed installs:
   javascript files; this failed due to an error with npm; nodejs v4.5.2 was
   installed and was too early a version for eslint); therefore removed npm and
   eslint~~
+- [Dataset] - couldn't find this on any main channels on anaconda
 
 # New things I learned
 
@@ -109,3 +117,9 @@ Failed installs:
   possible (let sqlalchemy optimise the db access)
 - PY: [sqlalchemy] `session.expunge(obj)` to remove 'obj' from the session (and
   prevent it being added to the database)
+- PY: [dataset] removes boilerplate of sqlalchemy (eg, at schema definition)
+- PY: [dataset] table.find() returns a collection of OrderedDicts (each
+  OrderedDict being a row in the table)
+- PY: [dataset] .freeze method used to allow printing sql query results to .csv
+  or .json; the method has been moved to {datafreeze} and that package is
+  defunct. Recommend using `pandas.to_csv` instead
