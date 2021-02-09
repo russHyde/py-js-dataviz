@@ -18,6 +18,7 @@ Libraries / tools:
 - [pandas] 1.2.1 installed via conda
 - [numpy] 1.19.5 installed via conda
 - [sqlalchemy] 1.3.23 installed via conda
+- [sqlite] 3.34.0 was already installed by conda
 
 Dev tools
 
@@ -94,3 +95,17 @@ Failed installs:
   `json.dumps(datetime.now())` fails; so encode them using a custom encoder
   using `json.dumps(xs, cls=CustomEncoder)`
 - PY: use `datetime.datetime.strptime(date_string, format)` to decode datetimes
+- PY: [sqlalchemy] database URL:
+  `dialect+driver://username:password@host:port/database`
+- PY: [sqlalchemy] creating database engine: `create_engine(url, echo=True)`
+  (echo=True means that SQL instructions will be printed to console)
+- PY: [sqlalchemy] tables represented as classes; import `declarative_base` and
+  inherit from this (& sqlalchemy will work out the relationships between
+  tables)
+- PY: [sqlalchemy] `declarative_base().metadata.create_all(engine)` to create
+  the database
+- PY: [sqlalchemy] create sessions using `sessionmaker`
+- PY: [sqlalchemy] `session.add()` to add to a table; use as few commits as
+  possible (let sqlalchemy optimise the db access)
+- PY: [sqlalchemy] `session.expunge(obj)` to remove 'obj' from the session (and
+  prevent it being added to the database)
