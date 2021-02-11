@@ -13,7 +13,6 @@ Libraries / tools:
     - `<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>`
     - `<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"><\script>`
 - [sqlite3] is already installed
-- [mongodb] [TODO] can be installed via conda or as a docker container
 - [ipython / jupyter] installed via conda (ipython7, jupyter-4.7)
 - [pandas] 1.2.1 installed via conda
 - [numpy] 1.19.5 installed via conda
@@ -26,6 +25,9 @@ Libraries / tools:
     - attempted to install conda-forge python-editor but it doesn't work: after
       a seemingly successful conda-install, it is present as a pip-installed
       package when looking at `conda env export`
+- [mongodb / pymongo] installed via conda
+    - might be good to install mongodb via docker container when working on
+      server
 
 Dev tools
 
@@ -123,3 +125,12 @@ Failed installs:
 - PY: [dataset] .freeze method used to allow printing sql query results to .csv
   or .json; the method has been moved to {datafreeze} and that package is
   defunct. Recommend using `pandas.to_csv` instead
+- MONGO: uses binary json for storage (BSON)
+- MONGO: creating databases like `client["some_db"]` is prone to typos;
+  recommend using a constant string in the script `DB = "some_db"; client[DB]`
+- MONGO: default port 27017; optional u/n & p/w
+- MONGO: use `*.insert_one()` or `*.insert_all()` rather than `*.insert`
+- MONGO: default dbpath is `/data/db`; but I'm using `/mongo_data/db`
+- MONGO: start mongo server using `mongod --dbpath /mongo_data/db`
+- MONGO: `*.insert_all(collection)` modifies `collection` by adding an `_id`
+  field to each dictionary
