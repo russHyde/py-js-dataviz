@@ -6,7 +6,7 @@ console.log(_.countBy(items));
 
 // groupBy and average
 
-journeys = [
+var journeys = [
   { period: "morning", times: [44, 34, 56, 31] },
   { period: "evening", times: [35, 33] },
   { period: "morning", times: [33, 29, 35, 41] },
