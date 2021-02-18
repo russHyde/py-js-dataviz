@@ -1,0 +1,24 @@
+{
+  "name": "py-js-dataviz",
+  "version": "1.0.0",
+  "description": "Code from working through \"Data visualization with Python and JavaScript\"",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "prettier": "2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russHyde/py-js-dataviz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/russHyde/py-js-dataviz/issues"
+  },
+  "homepage": "https://github.com/russHyde/py-js-dataviz#readme"
+}
