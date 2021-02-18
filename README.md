@@ -145,3 +145,13 @@ Dev tools
 - MONGO: start mongo server using `mongod --dbpath /mongo_data/db`
 - MONGO: `*.insert_all(collection)` modifies `collection` by adding an `_id`
   field to each dictionary
+
+# Chapter 4
+
+- JS: `npx` to run a locally-installed module
+- JS: `npm` to install modules
+- JS: `prettier` for destructive styling
+- JS: `eslint` for code checking / linting
+- JS: details on running eslint in vim: https://daqo.medium.com/vim-and-eslint-16fa08cc580f
+- JS: add `globals: {_: "readonly"}` to .eslintrc so that lodash `_` character
+  doesn't throw lints
