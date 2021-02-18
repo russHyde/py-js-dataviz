@@ -28,6 +28,10 @@ Libraries / tools:
 - [mongodb / pymongo] installed via conda
   - might be good to install mongodb via docker container when working on
     server
+
+Dev tools
+
+- [pylint] / [black] from conda
 - [nodejs / npm] installed using `sudo apt install ...` (had to update to
   Ubuntu 18.04 before I could get a modern version of nodejs)
   - current node=8.10.0, npm=3.5.2
@@ -48,17 +52,13 @@ Libraries / tools:
   - `npx prettier -w .` to destructively style all subfiles
   - added specific files that needn't be styled to .prettierignore
 
-Dev tools
-
-- [pylint] / [black] from conda
-
 # New things I learned
 
 ## Chapter 2
 
-- CHROME: Ctrl-Shift-J to open the console
 - PY: `python -m http.server <PORT>` to start a lightweight http server locally
   (the book uses the python2 equivalent: SimpleHTTPServer)
+- CHROME: Ctrl-Shift-J to open the console
 - JUPYTER: `jupyter qtconsole` to open a lightweight jupyter/ipython shell in
   qt
 - JS `var`: variables declared outside of functions or missing the 'var'
@@ -155,3 +155,11 @@ Dev tools
 - JS: details on running eslint in vim: https://daqo.medium.com/vim-and-eslint-16fa08cc580f
 - JS: add `globals: {_: "readonly"}` to .eslintrc so that lodash `_` character
   doesn't throw lints
+- CHROME: sources pane - allows you to inject debug points into a script and
+  reload it
+- HTML: you don't actually need the `<head>` element anymore
+- HTML: Only using '<svg>' tags here, but tags for canvas and 3d-canvas images
+  are available (difficult to debug though)
+- SVG: group context '<g>' allows you to move sets of points together within an
+  svg
+- SVG: visual styles can be set with css (fill, stroke, stroke-width, opacity)
