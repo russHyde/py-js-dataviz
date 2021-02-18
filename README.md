@@ -9,9 +9,9 @@ for details)
 Libraries / tools:
 
 - [d3.js / jQuery / lodash] from a CDN:
-    - `<script src="https://d3js.org/d3.v6.min.js"></script>`
-    - `<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>`
-    - `<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"><\script>`
+  - `<script src="https://d3js.org/d3.v6.min.js"></script>`
+  - `<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>`
+  - `<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"><\script>`
 - [sqlite3] is already installed
 - [ipython / jupyter] installed via conda (ipython7, jupyter-4.7)
 - [pandas] 1.2.1 installed via conda
@@ -19,27 +19,38 @@ Libraries / tools:
 - [sqlalchemy] 1.3.23 installed via conda
 - [sqlite] 3.34.0 was already installed by conda
 - [dataset] installed via pip
-    - this also installed Mako, alembic, banal, python-editor via pip
-    - banal not available through conda
-    - replaced alembic/mako with conda-forge version)
-    - attempted to install conda-forge python-editor but it doesn't work: after
-      a seemingly successful conda-install, it is present as a pip-installed
-      package when looking at `conda env export`
+  - this also installed Mako, alembic, banal, python-editor via pip
+  - banal not available through conda
+  - replaced alembic/mako with conda-forge version)
+  - attempted to install conda-forge python-editor but it doesn't work: after
+    a seemingly successful conda-install, it is present as a pip-installed
+    package when looking at `conda env export`
 - [mongodb / pymongo] installed via conda
-    - might be good to install mongodb via docker container when working on
-      server
+  - might be good to install mongodb via docker container when working on
+    server
+- [nodejs / npm] installed using `sudo apt install ...` (had to update to
+  Ubuntu 18.04 before I could get a modern version of nodejs)
+  - current node=8.10.0, npm=3.5.2
+- [nvm] (manages nodejs versions) v 0.37.2 installed:
+  - `sudo apt install build-essential checkinstall libssl-dev`
+  - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`
+  - ran `nvm ls-remote` to check available node versions
+  - ran `nvm install v14.15.5` to install latest LTS version of node
+- [eslint] requires node == 10.12.0 or >= 12.0.0; once 14.15.5 was installed
+  through nvm:
+  - ran `npm install eslint --save-dev`
+  - ran `./node_modules/.bin/eslint --init`
+  - used all defaults when setting up eslint (except no framework selected)
+- [prettier] installed v2.2.1 using npm
+  - `npm install --save-dev --save-exact prettier`
+  - `echo {}> .prettierrc.json`
+  - `touch .prettierignore`
+  - `npx prettier -w .` to destructively style all subfiles
+  - added specific files that needn't be styled to .prettierignore
 
 Dev tools
 
 - [pylint] / [black] from conda
-
-Failed installs:
-- ~~[npm] installed from apt: `sudo apt install npm`~~
-- ~~[eslint] installed from npm: `npm install eslint --save-dev` (for linting
-  javascript files; this failed due to an error with npm; nodejs v4.5.2 was
-  installed and was too early a version for eslint); therefore removed npm and
-  eslint~~
-- [Dataset] - couldn't find this on any main channels on anaconda
 
 # New things I learned
 
@@ -62,8 +73,8 @@ Failed installs:
 - JS: can access elements of an object using either dot or key-string (x.abc
   === x["abc"])
 - JS: two ways to define a function:
-    - [function]  `function f(param){};`
-    - [functionexpression]  `var f = function(param){};`
+  - [function] `function f(param){};`
+  - [functionexpression] `var f = function(param){};`
 - JS: no default vals for function params in the parameter list (overwrite if
   undefined to achieve this) [js < ECMASCRIPT6]
 - JS: no base method for iterating over k/v pairs in JS objects, use
@@ -73,7 +84,7 @@ Failed installs:
   use it
 - HTML: to add inline javascript to an .html file: <script>some_javascript;</script>
 - HTML: to run code asynchronously: <script type="XYZ" src="some/path" async></script>
-   but note that the order of console.logs (etc) will not be predictable
+  but note that the order of console.logs (etc) will not be predictable
 - JS: use `_.map(xs, "key")` instead of `_.pluck(xs, "key")` to pull out by
   keys from each entry in an array (pluck was removed in v4.0.0 of lodash)
 - JS: use closures to allow for private variables
