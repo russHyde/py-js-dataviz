@@ -11,5 +11,6 @@ module.exports = {
   rules: {},
   globals: {
     _: "readonly",
+    d3: "readonly",
   },
 };
