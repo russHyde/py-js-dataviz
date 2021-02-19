@@ -163,3 +163,6 @@ Dev tools
 - SVG: group context '<g>' allows you to move sets of points together within an
   svg
 - SVG: visual styles can be set with css (fill, stroke, stroke-width, opacity)
+- SVG: rotation-angle is clockwise
+- SVG: for open paths, ensure `fill: none;` for svg paths or they'll be filled
+  in and look like closed paths
