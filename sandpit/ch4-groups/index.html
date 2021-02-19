@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<!-- A few CSS style rules -->
+<style>
+  #chart {
+    background: lightgray;
+  }
+</style>
+
+<body>
+  <svg id="chart" width="300" height="150">
+    <g id="shapes" , transform="translate(150,75),scale(0.5),rotate(90)">
+      <circle cx="50" cy="0" r="25" fill="red" />
+      <rect x="30" y="10" width="40" height="20" fill="blue" />
+      <path
+        d="M-20 -10
+        L50 -10
+        L10 60Z"
+        fill="green"
+      />
+      <circle r="10" fill="yellow" />
+    </g>
+  </svg>
+
+  <!-- Third-party libraries and our JS script. -->
+  <script src="http://d3js.org/d3.v6.min.js"></script>
+  <script src="script.js"></script>
+</body>
