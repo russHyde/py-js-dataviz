@@ -21,12 +21,15 @@ dependencies:
   - black=20.8b1
   - bleach=3.3.0
   - boost-cpp=1.74.0
+  - brotlipy=0.7.0
   - bzip2=1.0.8
   - c-ares=1.17.1
   - ca-certificates=2020.12.5
   - certifi=2020.12.5
   - cffi=1.14.4
+  - chardet=4.0.0
   - click=7.1.2
+  - cryptography=3.4.4
   - dataclasses=0.7
   - dbus=1.13.6
   - decorator=4.4.2
@@ -41,6 +44,7 @@ dependencies:
   - gst-plugins-base=1.14.5
   - gstreamer=1.18.3
   - icu=68.1
+  - idna=2.10
   - importlib-metadata=3.4.0
   - importlib_metadata=3.4.0
   - ipykernel=5.4.2
@@ -106,7 +110,7 @@ dependencies:
   - nspr=4.29
   - nss=3.61
   - numpy=1.19.5
-  - openssl=1.1.1i
+  - openssl=1.1.1j
   - packaging=20.9
   - pandas=1.2.1
   - pandoc=2.11.4
@@ -126,6 +130,7 @@ dependencies:
   - pygments=2.7.4
   - pylint=2.6.0
   - pymongo=3.11.0
+  - pyopenssl=20.0.1
   - pyparsing=2.4.7
   - pyqt=5.12.3
   - pyqt-impl=5.12.3
@@ -133,6 +138,7 @@ dependencies:
   - pyqtchart=5.12
   - pyqtwebengine=5.12.1
   - pyrsistent=0.17.3
+  - pysocks=1.7.1
   - python=3.9.1
   - python-dateutil=2.8.1
   - python_abi=3.9
@@ -143,6 +149,7 @@ dependencies:
   - qtpy=1.9.0
   - readline=8.0
   - regex=2020.11.13
+  - requests=2.25.1
   - send2trash=1.5.0
   - setuptools=49.6.0
   - six=1.15.0
@@ -158,6 +165,7 @@ dependencies:
   - typed-ast=1.4.2
   - typing_extensions=3.7.4.3
   - tzdata=2020f
+  - urllib3=1.26.3
   - wcwidth=0.2.5
   - webencodings=0.5.1
   - wheel=0.36.2
