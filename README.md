@@ -12,45 +12,59 @@ Libraries / tools:
   - `<script src="https://d3js.org/d3.v6.min.js"></script>`
   - `<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>`
   - `<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"><\script>`
+
 - [sqlite3] is already installed
-- [ipython / jupyter] installed via conda (ipython7, jupyter-4.7)
-- [pandas] 1.2.1 installed via conda
-- [numpy] 1.19.5 installed via conda
-- [sqlalchemy] 1.3.23 installed via conda
-- [sqlite] 3.34.0 was already installed by conda
-- [dataset] installed via pip
-  - this also installed Mako, alembic, banal, python-editor via pip
-  - banal not available through conda
-  - replaced alembic/mako with conda-forge version)
-  - attempted to install conda-forge python-editor but it doesn't work: after
-    a seemingly successful conda-install, it is present as a pip-installed
-    package when looking at `conda env export`
-- [mongodb / pymongo] installed via conda
-  - might be good to install mongodb via docker container when working on
-    server
+
+- Installed via conda:
+  - [ipython 7 / jupyter 4.7]
+  - [pandas 1.2.1]
+  - [numpy 1.19.5]
+  - [sqlalchemy 1.3.23]
+  - [sqlite 3.34.0]
+  - [mongodb / pymongo]
+    - might be good to install mongodb via docker container when working on
+      server
+
+- Installed via pip (into the conda env)
+  - [dataset] installed via pip
+    - this also installed Mako, alembic, banal, python-editor via pip
+    - banal not available through conda
+    - replaced alembic/mako with conda-forge version)
+    - attempted to install conda-forge python-editor but it doesn't work: after
+      a seemingly successful conda-install, it is present as a pip-installed
+      package when looking at `conda env export`
 
 Dev tools
 
-- [pylint] / [black] from conda
-- [nodejs / npm] installed using `sudo apt install ...` (had to update to
-  Ubuntu 18.04 before I could get a modern version of nodejs)
-  - current node=8.10.0, npm=3.5.2
-- [nvm] (manages nodejs versions) v 0.37.2 installed:
-  - `sudo apt install build-essential checkinstall libssl-dev`
-  - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`
-  - ran `nvm ls-remote` to check available node versions
-  - ran `nvm install v14.15.5` to install latest LTS version of node
-- [eslint] requires node == 10.12.0 or >= 12.0.0; once 14.15.5 was installed
-  through nvm:
-  - ran `npm install eslint --save-dev`
-  - ran `./node_modules/.bin/eslint --init`
-  - used all defaults when setting up eslint (except no framework selected)
-- [prettier] installed v2.2.1 using npm
-  - `npm install --save-dev --save-exact prettier`
-  - `echo {}> .prettierrc.json`
-  - `touch .prettierignore`
-  - `npx prettier -w .` to destructively style all subfiles
-  - added specific files that needn't be styled to .prettierignore
+- Installed via conda
+  - [pylint] / [black]
+
+- `apt` installed
+  - [nodejs / npm] installed using `sudo apt install ...` (had to update to
+    Ubuntu 18.04 before I could get a modern version of nodejs)
+    - current node=8.10.0, npm=3.5.2
+
+- Installation of `nvm`
+  - nvm manages nodejs versions v 0.37.2 installed:
+    - `sudo apt install build-essential checkinstall libssl-dev`
+    - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`
+
+- Installed via `nvm`
+    - ran `nvm ls-remote` to check available node versions
+    - ran `nvm install v14.15.5` to install latest LTS version of node
+
+- Installed via `npm`
+  - [eslint] requires node == 10.12.0 or >= 12.0.0; once 14.15.5 was installed
+    through npm:
+    - ran `npm install eslint --save-dev`
+    - ran `./node_modules/.bin/eslint --init`
+    - used all defaults when setting up eslint (except no framework selected)
+  - [prettier] installed v2.2.1 using npm
+    - `npm install --save-dev --save-exact prettier`
+    - `echo {}> .prettierrc.json`
+    - `touch .prettierignore`
+    - To run: `npx prettier -w .` to destructively style all subfiles
+    - added specific files that needn't be styled to .prettierignore
 
 # New things I learned
 
@@ -91,7 +105,7 @@ Dev tools
 - JS: can also define public/private methods by returning a public api
 - PY: use 'nonlocal' to define closures in python (but don't, just don't)
 
-# Chapter 3
+## Chapter 3
 
 - PY: `pylint` fails to import modules in the same directory (so shows a lint
   when importing `nobel.NOBEL_WINNERS` from `nobel.py` into `nobel_csv.py` when
@@ -146,7 +160,7 @@ Dev tools
 - MONGO: `*.insert_all(collection)` modifies `collection` by adding an `_id`
   field to each dictionary
 
-# Chapter 4
+## Chapter 4
 
 - JS: `npx` to run a locally-installed module
 - JS: `npm` to install modules
@@ -166,3 +180,13 @@ Dev tools
 - SVG: rotation-angle is clockwise
 - SVG: for open paths, ensure `fill: none;` for svg paths or they'll be filled
   in and look like closed paths
+
+## Chapter 5
+
+- PY: 'requests' for getting data via HTTP
+- PY: 'response.json()' to obtain a python dictionary from a json-formatted
+  file
+
+# Issues
+
+- Couldn't download the food-affordability dataset in chapter 5
