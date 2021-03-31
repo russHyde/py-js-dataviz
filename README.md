@@ -9,6 +9,7 @@ for details)
 Libraries / tools:
 
 - [d3.js / jQuery / lodash] from a CDN:
+
   - `<script src="https://d3js.org/d3.v6.min.js"></script>`
   - `<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>`
   - `<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"><\script>`
@@ -16,6 +17,7 @@ Libraries / tools:
 - [sqlite3] is already installed
 
 - Installed via conda:
+
   - [ipython 7 / jupyter 4.7]
   - [pandas 1.2.1]
   - [numpy 1.19.5]
@@ -37,21 +39,25 @@ Libraries / tools:
 Dev tools
 
 - Installed via conda
+
   - [pylint] / [black]
 
 - `apt` installed
+
   - [nodejs / npm] installed using `sudo apt install ...` (had to update to
     Ubuntu 18.04 before I could get a modern version of nodejs)
     - current node=8.10.0, npm=3.5.2
 
 - Installation of `nvm`
+
   - nvm manages nodejs versions v 0.37.2 installed:
     - `sudo apt install build-essential checkinstall libssl-dev`
     - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash`
 
 - Installed via `nvm`
-    - ran `nvm ls-remote` to check available node versions
-    - ran `nvm install v14.15.5` to install latest LTS version of node
+
+  - ran `nvm ls-remote` to check available node versions
+  - ran `nvm install v14.15.5` to install latest LTS version of node
 
 - Installed via `npm`
   - [eslint] requires node == 10.12.0 or >= 12.0.0; once 14.15.5 was installed
@@ -68,13 +74,15 @@ Dev tools
 
 # New things I learned
 
+Tags: TOOL, PY, JS, MONGO, HTML, WEB, SVG, DATA
+
 ## Chapter 2
 
 - PY: `python -m http.server <PORT>` to start a lightweight http server locally
   (the book uses the python2 equivalent: SimpleHTTPServer)
-- CHROME: Ctrl-Shift-J to open the console
-- JUPYTER: `jupyter qtconsole` to open a lightweight jupyter/ipython shell in
-  qt
+- TOOL: [chrome] Ctrl-Shift-J to open the console
+- TOOL: [jupyter] `jupyter qtconsole` to open a lightweight jupyter/ipython
+  shell in qt
 - JS `var`: variables declared outside of functions or missing the 'var'
   keyword are global (so may leach into other JS scripts)
 - JS `use strict`: catches some typical JS errors
@@ -154,11 +162,14 @@ Dev tools
 - MONGO: creating databases like `client["some_db"]` is prone to typos;
   recommend using a constant string in the script `DB = "some_db"; client[DB]`
 - MONGO: default port 27017; optional u/n & p/w
-- MONGO: use `*.insert_one()` or `*.insert_all()` rather than `*.insert`
+- MONGO: use `*.insert_one()` or `*.insert_many()` rather than `*.insert`
 - MONGO: default dbpath is `/data/db`; but I'm using `/mongo_data/db`
-- MONGO: start mongo server using `mongod --dbpath /mongo_data/db`
-- MONGO: `*.insert_all(collection)` modifies `collection` by adding an `_id`
+- MONGO: start mongo server using `mongod --dbpath ~/mongo_data/db`
+- MONGO: `*.insert_many(collection)` modifies `collection` by adding an `_id`
   field to each dictionary
+- MONGO: `collection = DB["coll_name"]` then `collection.drop()` to ensure you
+  start with an empty table before inserting new data
+
 
 ## Chapter 4
 
@@ -169,8 +180,8 @@ Dev tools
 - JS: details on running eslint in vim: https://daqo.medium.com/vim-and-eslint-16fa08cc580f
 - JS: add `globals: {_: "readonly"}` to .eslintrc so that lodash `_` character
   doesn't throw lints
-- CHROME: sources pane - allows you to inject debug points into a script and
-  reload it
+- TOOL: [chrome] sources pane - allows you to inject debug points into a script
+  and reload it
 - HTML: you don't actually need the `<head>` element anymore
 - HTML: Only using '<svg>' tags here, but tags for canvas and 3d-canvas images
   are available (difficult to debug though)
@@ -186,6 +197,18 @@ Dev tools
 - PY: 'requests' for getting data via HTTP
 - PY: 'response.json()' to obtain a python dictionary from a json-formatted
   file
+- WEB: different approaches to creating APIs
+  - REST: HTTP verbs and URIs (the most typical approach)
+    - POST/GET/PUT/DELETE verbs are CRUD counterparts
+    - URI should contain all info required to perform the operation
+  - XML-RPC: Remote procedure call using XML encoding
+  - SOAP: Simple object access protocol
+- DATA: SDMX is a format for communicating statistical data
+  - has JSON, XML and CSV dialects
+- PY: `pandasSDMX` can handle JSON & XML dialects of SDMX
+- WEB: `restcountries.eu` RESTful source of country statistics
+- PY: [requests] add a "User-Agent" to the header of a request; some sites
+  rejest a request if this is not given
 
 # Issues
 
